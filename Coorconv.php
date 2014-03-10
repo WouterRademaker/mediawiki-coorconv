@@ -175,34 +175,34 @@ function WGS84ToCH1903( &$parser, $x, $y ) {
 function WGS84ToRD( &$parser, $x, $y ) {
 // WGS84 Latitude/Longitude to RD - the Netherlands
 // based on http://www.dekoepel.nl/pdf/Transformatieformules.pdf
-        $phi    = 0.36 * ($x - 52.15517440);
-        $lambda = 0.36 * ($y -  5.38720621);
- 
+        $phi    = bcmul(0.36, bcsub($x, 52.15517440,32),32);
+        $lambda = bcmul(0.36, bcsub($y, 5.38720621,32),32);
+         
         $x_rd   = 155000 
-                + 190094.945 * $lambda 
-                - 11832.228 * $lambda * $phi 
-                - 114.221 * $lambda * $phi * $phi 
-                - 32.391 * $lambda * $lambda * $lambda 
-                - 0.705 * $phi 
-                - 2.340 * $phi * $phi * $phi * $lambda 
-                - 0.608 * $phi * $lambda * $lambda * $lambda 
-                - 0.008 * $lambda * $lambda 
-                + 0.148 * $phi * $phi * $lambda * $lambda * $lambda;
+                + bcmul(190094.945,            $lambda                  ) 
+                - bcmul(11832.228 ,bcmul(      $lambda   ,      $phi   )) 
+                - bcmul(114.221   ,bcmul(      $lambda   ,bcpow($phi,2))) 
+                - bcmul(32.391    ,      bcpow($lambda,3)               ) 
+                - bcmul(0.705     ,                             $phi    ) 
+                - bcmul(2.340     ,bcmul(      $lambda   ,bcpow($phi,3))) 
+                - bcmul(0.608     ,bcmul(bcpow($lambda,3),      $phi   )) 
+                - bcmul(0.008     ,      bcpow($lambda,2)               ) 
+                + bcmul(0.148     ,bcmul(bcpow($lambda,3),bcpow($phi,2)));
  
         $y_rd   = 463000 
-                + 309056.544 * $phi 
-                + 3638.893 * $lambda * $lambda 
-                + 73.077 * $phi * $phi 
-                - 157.984 * $phi * $lambda * $lambda 
-                + 59.788 * $phi *$phi * $phi 
-                + 0.433 * $lambda 
-                - 6.439 * $phi * $phi * $lambda * $lambda 
-                - 0.032 * $phi * $lambda 
-                + 0.092 * $lambda * $lambda * $lambda * $lambda 
-                - 0.054 * $phi * $lambda * $lambda * $lambda * $lambda;
+                + bcmul(309056.544,            $phi                     ) 
+                + bcmul(3638.893  ,                    bcpow($lambda,2) ) 
+                + bcmul(73.077    ,      bcpow($phi,2)) 
+                - bcmul(157.984   ,bcmul(      $phi,   bcpow($lambda,2))) 
+                + bcmul(59.788    ,      bcpow($phi,3)                  ) 
+                + bcmul(0.433     ,                          $lambda    ) 
+                - bcmul(6.439     ,bcmul(bcpow($phi,2),bcpow($lambda,2))) 
+                - bcmul(0.032     ,bcmul(      $phi,         $lambda  ) ) 
+                + bcmul(0.092     ,                    bcpow($lambda,4) ) 
+                - bcmul(0.054     ,bcmul(      $phi   ,bcpow($lambda,4)));
  
 //      return sprintf("%06d%06d",$x_rd, $y_rd);
-        return number_format($x_rd/1000, 2) ."-" .number_format($y_rd/1000, 2);
+        return number_format(bcdiv($x_rd,1000), 2) ."-" .number_format(bcdiv($y_rd,1000), 2);
 }
  
 function WGS84ToUTM( &$parser, $phi_d, $lambda_d, $zone='') {
