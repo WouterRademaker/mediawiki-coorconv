@@ -14,7 +14,7 @@ $wgExtensionCredits['parserhook'][] = array(
         'url' => 'http://www.mediawiki.org/Extension:Coorconv',
         'description' => 'Some functions for conversion of geographical coordinates',
 //      'descriptionmsg' => 'myextension-desc',
-        'version' => '0.5.1',
+        'version' => '0.6.0',
 );
  
 # Define a setup function
@@ -178,31 +178,33 @@ function WGS84ToRD( &$parser, $x, $y ) {
         $phi    = bcmul(0.36, bcsub($x, 52.15517440,32),32);
         $lambda = bcmul(0.36, bcsub($y, 5.38720621,32),32);
          
-        $x_rd   = 155000 
-                + bcmul(190094.945,            $lambda                  ) 
-                - bcmul(11832.228 ,bcmul(      $lambda   ,      $phi   )) 
-                - bcmul(114.221   ,bcmul(      $lambda   ,bcpow($phi,2))) 
-                - bcmul(32.391    ,      bcpow($lambda,3)               ) 
-                - bcmul(0.705     ,                             $phi    ) 
-                - bcmul(2.340     ,bcmul(      $lambda   ,bcpow($phi,3))) 
-                - bcmul(0.608     ,bcmul(bcpow($lambda,3),      $phi   )) 
-                - bcmul(0.008     ,      bcpow($lambda,2)               ) 
-                + bcmul(0.148     ,bcmul(bcpow($lambda,3),bcpow($phi,2)));
+        $x_rd   = bcadd(155000, 
+                bcadd(bcmul(190094.945,            $lambda                  ,32), 
+                bcadd(bcmul(-11832.228 ,bcmul(      $lambda   ,      $phi   ,32),32), 
+                bcadd(bcmul(-114.221   ,bcmul(      $lambda   ,bcpow($phi,2,32),32),32), 
+                bcadd(bcmul(-32.391    ,      bcpow($lambda,3,32)               ,32), 
+                bcadd(bcmul(-0.705     ,                             $phi    ,32), 
+                bcadd(bcmul(-2.340     ,bcmul(      $lambda   ,bcpow($phi,3,32),32),32), 
+                bcadd(bcmul(-0.608     ,bcmul(bcpow($lambda,3,32),      $phi   ,32),32), 
+                bcadd(bcmul(0.008     ,      bcpow($lambda,2,32)               ,32), 
+                      bcmul(0.148     ,bcmul(bcpow($lambda,3,32),bcpow($phi,2,32),32),32)
+                ,32),32),32),32),32),32),32),32),32);
  
-        $y_rd   = 463000 
-                + bcmul(309056.544,            $phi                     ) 
-                + bcmul(3638.893  ,                    bcpow($lambda,2) ) 
-                + bcmul(73.077    ,      bcpow($phi,2)) 
-                - bcmul(157.984   ,bcmul(      $phi,   bcpow($lambda,2))) 
-                + bcmul(59.788    ,      bcpow($phi,3)                  ) 
-                + bcmul(0.433     ,                          $lambda    ) 
-                - bcmul(6.439     ,bcmul(bcpow($phi,2),bcpow($lambda,2))) 
-                - bcmul(0.032     ,bcmul(      $phi,         $lambda  ) ) 
-                + bcmul(0.092     ,                    bcpow($lambda,4) ) 
-                - bcmul(0.054     ,bcmul(      $phi   ,bcpow($lambda,4)));
+        $y_rd   = bcadd(463000, 
+                 bcadd(bcmul(309056.544,            $phi                              ,32), 
+                 bcadd(bcmul(3638.893  ,                       bcpow($lambda,2,32)    ,32), 
+                 bcadd(bcmul(73.077    ,      bcpow($phi,2,32)                        ,32), 
+                 bcadd(bcmul(-157.984  ,bcmul(      $phi,      bcpow($lambda,2,32),32),32), 
+                 bcadd(bcmul(59.788    ,      bcpow($phi,3,32)                        ,32), 
+                 bcadd(bcmul(0.433     ,                             $lambda          ,32), 
+                 bcadd(bcmul(-6.439    ,bcmul(bcpow($phi,2,32),bcpow($lambda,2,32),32),32), 
+                 bcadd(bcmul(-0.032    ,bcmul(      $phi,            $lambda  ,32)    ,32), 
+                 bcadd(bcmul(0.092     ,                       bcpow($lambda,4,32)    ,32), 
+                       bcmul(-0.054    ,bcmul(      $phi   ,   bcpow($lambda,4,32),32),32)
+                 ,32),32),32),32),32),32),32),32),32),32);
  
 //      return sprintf("%06d%06d",$x_rd, $y_rd);
-        return number_format(bcdiv($x_rd,1000), 2) ."-" .number_format(bcdiv($y_rd,1000), 2);
+        return number_format(bcdiv($x_rd,1000,10), 6) ."-" .number_format(bcdiv($y_rd,1000,10), 6);
 }
  
 function WGS84ToUTM( &$parser, $phi_d, $lambda_d, $zone='') {
