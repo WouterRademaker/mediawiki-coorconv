@@ -204,7 +204,7 @@ function WGS84ToRD( &$parser, $x, $y ) {
                  ,32),32),32),32),32),32),32),32),32),32);
  
 //      return sprintf("%06d%06d",$x_rd, $y_rd);
-        return number_format(bcdiv($x_rd,1000,10), 6) ."-" .number_format(bcdiv($y_rd,1000,10), 6);
+        return number_format(bcdiv($x_rd,1000,10), 3) ."-" .number_format(bcdiv($y_rd,1000,10), 3);
 }
  
 function WGS84ToUTM( &$parser, $phi_d, $lambda_d, $zone='') {
