@@ -11,7 +11,7 @@ EOT;
 $wgExtensionCredits['parserhook'][] = array(
         'name' => 'Coorconv',
         'author' => 'Wouter Rademaker',
-        'url' => 'http://www.mediawiki.org/Extension:Coorconv',
+        'url' => 'https://www.mediawiki.org/wiki/Extension:Coorconv',
         'description' => 'Some functions for conversion of geographical coordinates',
 //      'descriptionmsg' => 'myextension-desc',
         'version' => '0.6.0',
