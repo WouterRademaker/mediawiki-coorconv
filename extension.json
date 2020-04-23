@@ -1,0 +1,55 @@
+{
+	"name": "CoordinateConversion",
+	"version": "0.7.0",
+	"author": [
+		"Wouter Rademaker"
+	],
+	"url": "https://github.com/WouterRademaker/mediawiki-coorconv.git",
+	"descriptionmsg": "coordinateconversion-desc",
+	"license-name": "GPL v2",
+	"type": "parserhook",
+	"AutoloadClasses": {
+		"CoordinateConversionHooks": "CoordinateConversion.hooks.php",
+		"SpecialCCTest": "specials/SpecialCCTest.php"
+	},
+	"config": {
+		"CoordinateConversionEnableFoo": true
+	},
+	"ExtensionMessagesFiles": {
+		"CoordinateConversionAlias": "CoordinateConversion.i18n.alias.php",
+                "CoordinateConversionAlias": "CoordinateConversion.i18n.magic.php"
+	},
+	"Hooks": {
+		
+		"ParserFirstCallInit": [
+			"CoordinateConversionHooks::onParserFirstCallInit"
+		]
+	},
+	"MessagesDirs": {
+		"CoordinateConversion": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.coordinateConversion.foo": {
+			"scripts": [
+				"modules/ext.coordinateConversion.js",
+				"modules/ext.coordinateConversion.foo.js"
+			],
+			"styles": [
+				"modules/ext.coordinateConversion.foo.css"
+			],
+			"messages": [],
+			"dependencies": []
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "CoordinateConversion"
+	},
+	"SpecialPages": {
+		"CCTest": "SpecialCCTest"
+
+        },
+	"manifest_version": 1
+}
