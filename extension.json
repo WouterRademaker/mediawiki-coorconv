@@ -10,7 +10,14 @@
 	"type": "parserhook",
 	"AutoloadClasses": {
 		"CoordinateConversionHooks": "CoordinateConversion.hooks.php",
-		"SpecialCCTest": "specials/SpecialCCTest.php"
+		"SpecialCCTest": "specials/SpecialCCTest.php",
+		"CH1903": "includes/CH1903.php",
+		"Common": "includes/Common.php",		
+		"Lambert": "includes/Lambert.php",
+		"LUREF": "includes/LUREF.php",
+		"OSGRID": "includes/OSGRID.php",
+		"RD": "includes/RD.php",
+		"TransM": "includes/TM.php"
 	},
 	"config": {
 		"CoordinateConversionEnableFoo": true
@@ -20,7 +27,7 @@
                 "CoordinateConversionAlias": "CoordinateConversion.i18n.magic.php"
 	},
 	"Hooks": {
-		
+
 		"ParserFirstCallInit": [
 			"CoordinateConversionHooks::onParserFirstCallInit"
 		]
