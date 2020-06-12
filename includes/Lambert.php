@@ -1,6 +1,5 @@
 <?php
 class Lambert {
-
 	static function WGS84ToLAM($LAM,$x, $y ) {
 		// Lambert projection
 		// based on http://www.ngi.be/Common/Lambert2008/Transformation_Geographic_Lambert_NL.pdf

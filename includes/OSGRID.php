@@ -1,6 +1,5 @@
 <?php
 class OSGRID {
-
 	static function WGS84ToOSGB36( &$parser, $phi_d, $lambda_d, $height = 0) {
 		// WGS84 Latitude/Longitude to OSGB36 - Great Britain
 		// Based on http://www.movable-type.co.uk/scripts/latlong-convert-coords.html
@@ -211,5 +210,4 @@ class OSGRID {
 					return sprintf("%s %'04d %'04d",$let, $e, $n);
 				}
 			}
-
 }

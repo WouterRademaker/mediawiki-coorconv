@@ -1,5 +1,5 @@
 <?php
-public class RD {
+class RD {
 	static function WGS84ToRD( &$parser, $x, $y = null  ) {
 		if( $y == null) {
 		                   $array = explode(',', $x);
@@ -36,4 +36,5 @@ public class RD {
 
 				//      return sprintf("%06d%06d",$x_rd, $y_rd);
 				return number_format($x_rd, 0, ',', ' ') ."-" .number_format($y_rd, 0, ',', ' ');
+			}
 }

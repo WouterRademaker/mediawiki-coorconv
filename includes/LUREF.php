@@ -16,6 +16,5 @@ class LUREF {
 				$grid = OSGRID::LatLongToOSGrid($point,$HAYFORD24,$originLUREF);
 				extract($grid);
 				return sprintf("%dm E %dm N",$E, $N);
-
 		}
 }

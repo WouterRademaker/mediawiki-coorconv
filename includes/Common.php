@@ -1,6 +1,5 @@
 <?php
 class Common {
-
 	static function datumtransformation($point, $e1, $t, $e2) {
 		// Based on http://www.movable-type.co.uk/scripts/latlong-convert-coords.html
 		// -- convert polar to cartesian coordinates (using ellipse 1)
@@ -47,5 +46,4 @@ class Common {
 		$point['height'] = $p/cos($phi) - $nu;
 		return $point;
 	}
-
 }  

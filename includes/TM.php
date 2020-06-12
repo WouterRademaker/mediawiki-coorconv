@@ -1,6 +1,5 @@
 <?php
 class TransM {
-
   	static function TM($phi, $l) {
   		// transverse Mercator projection
   		// Based on http://www.igorexchange.com/node/927 and http://home.hiwaay.net/~taylorc/toolbox/geography/geoutm.html
@@ -144,6 +143,5 @@ class TransM {
 			$x_tm   = $xy[0]*$TMScaleFactor + 304800;
 			$y_tm   = $xy[1]*$TMScaleFactor;
 			return sprintf("%d %dm E %dm N",$zone, $x_tm, $y_tm);
-
 	}
 }
