@@ -1,6 +1,6 @@
 <?php
 class RD {
-	static function WGS84ToRD( &$parser, $x, $y = null  ) {
+	public static function WGS84ToRD( &$parser, $x, $y = null  ) {
 		if( $y == null) {
 		                   $array = explode(',', $x);
 		                   $x = $array[0];
