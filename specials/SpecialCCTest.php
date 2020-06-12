@@ -26,43 +26,30 @@ class SpecialCCTest extends SpecialPage {
 
 		$out->addWikiMsg( 'coordinateconversion-test-intro' );
 
-		
+
 
 		# Do stuff
 		# ...
-		$wikitext = '*WGS84
-** <nowiki>{{#lat_deg2dms: }} , {{#long_deg2dms: }} </nowiki>
-**{{#lat_deg2dms:52.371}} , {{#long_deg2dms:4.897}} Amsterdam
-**{{#lat_deg2dms:50.846667}} , {{#long_deg2dms:4.3525}} Brussel
-**{{#lat_deg2dms:48.866667}} , {{#long_deg2dms:2.333056}} Parijs
-**{{#lat_deg2dms:51.477811}} , {{#long_deg2dms:-0.001475}} Londen
-**{{#lat_deg2dms:46.95}} , {{#long_deg2dms:7.45}} Bern
-**{{#lat_deg2dms:60.1666666666667}} , {{#long_deg2dms:24.9333333333333}} Helsinki
-**{{#lat_deg2dms:60.45}} , {{#long_deg2dms:22.25}} Turku
-**{{#lat_deg2dms:53.347778}} , {{#long_deg2dms:-6.259722}} Dublin
-
-** <nowiki>{{#deg2dms: }} </nowiki>
-**{{#deg2dms:52.371,4.897}} Amsterdam
-**{{#deg2dms:50.846667,4.3525}} Brussel
-**{{#deg2dms:48.866667,2.333056}} Parijs
-**{{#deg2dms:51.477811,-0.001475}} Londen
-**{{#deg2dms:46.95,7.45}} Bern
-**{{#deg2dms:60.1666666666667,24.9333333333333}} Helsinki
-**{{#deg2dms:60.45,22.25}} Turku
-**{{#deg2dms:53.347778,-6.259722}} Dublin
-
-*RD (Nederland):
-**<nowiki>{{#wgs84_2rd: | }} </nowiki>
-**{{#wgs84_2rd:52.37453253|4.88352559}} Amsterdam
-**{{#wgs84_2rd:52.37453253,4.88352559}} Amsterdam
-**{{#wgs84_2rd:53.21938317|6.56820053}} Groningen
-**{{#wgs84_2rd:50.846667|4.3525}}  Brussel
-
-*LB08 (Belgi&euml;):
-**<nowiki>{{#wgs84_2lb08: | }} </nowiki>
-**{{#wgs84_2lb08:52.371|4.897}} Amsterdam
-**{{#wgs84_2lb08:50.846667|4.3525}} Brussel
-**{{#wgs84_2lb08:48.866667|2.333056}}  Parijs
+		$wikitext = '
+{|class="wikitable" style="width:100%"
+!colspan=4| RD (Nederland)
+|-
+|<nowiki>{{#wgs84_2rd: | }} </nowiki>
+|colspan=3|https://media.thomasv.nl/2015/07/Transformatieformules.pdf
+|-
+| Amsterdam (Westertoren)||52.37453253,4.88352559||x = 120700,723 m y = 487525,501 m||{{#wgs84_2rd:52.37453253|4.88352559}}
+|-
+|  Groningen (Martinitoren)||53.21938317,6.56820053||x = 233883,131 m y = 582065,167 m||{{#wgs84_2rd:53.21938317|6.56820053}}
+|-
+!colspan=4| LB08 (België)
+|-
+|<nowiki>{{#wgs84_2lb08: | }} </nowiki>
+|colspan=3|http://www.ngi.be/Common/Lambert2008/Transformation_Geographic_Lambert_NL.pdf
+|-
+|Brussel (Paleizenplein)||{{#coordinates:50° 50' 32.7898'' N,4° 21' 51.4792'' E|format=float|directional=no}}||x = 649686.07 m y = 670226.23 m ||{{#wgs84_2lb08:50.842442|4.3643}}
+|-
+|Arlon (Butte Saint-Donat)||{{#coordinates:49° 41' 06.1215'' N,5° 48' 58.5234'' E|format=float|directional=no}}||x = 754469.25 m y = 542520.00 m||{{#wgs84_2lb08:49.685034|5.816257}}
+|}
 
 *LB93 (Frankrijk):
 **<nowiki>{{#wgs84_2lb93: | }} </nowiki>
@@ -76,7 +63,7 @@ class SpecialCCTest extends SpecialPage {
 
 *UTM (WGS84)
 **<nowiki>{{#lat_long2utm: | }} </nowiki>
-**{{#wgs84_2utm:52.371|4.897}} Amsterdam 
+**{{#wgs84_2utm:52.371|4.897}} Amsterdam
 **{{#wgs84_2utm:50.846667|4.3525}} Brussel
 **{{#wgs84_2utm:48.866667|2.333056}}  Parijs
 **{{#wgs84_2utm:51.477811|-0.001475}} Londen
@@ -147,29 +134,29 @@ class SpecialCCTest extends SpecialPage {
 
 *OSGB36 (Engeland Schotland)
 **<nowiki>{{#wgs84_2osgb: | }} </nowiki>
-**{{#wgs84_2osgb:51.477811|-0.001475}} Londen 
-**{{#wgs84_2osgb:50.75|-2.75}}  
-**{{#wgs84_2osgb:57.474497|-4.224243}} Inverness 
-**{{#wgs84_2osgb:60.5|-9.2}} test 
+**{{#wgs84_2osgb:51.477811|-0.001475}} Londen
+**{{#wgs84_2osgb:50.75|-2.75}}
+**{{#wgs84_2osgb:57.474497|-4.224243}} Inverness
+**{{#wgs84_2osgb:60.5|-9.2}} test
 
 *Irish Grid - ((Noord) Ierland)
 **<nowiki>{{{{#wgs84_2ig: | }} </nowiki>
-**{{#wgs84_2ig:53.347778| -6.259722}} Dublin 
-**{{#wgs84_2ig:51.897222| -8.47}} Cork 
+**{{#wgs84_2ig:53.347778| -6.259722}} Dublin
+**{{#wgs84_2ig:51.897222| -8.47}} Cork
 **{{#wgs84_2ig:52| -8}}
 **{{#wgs84_2ig:53.485269|-6.920534661}}
 
 *Irish Transverse Mercator  - ((Noord) Ierland)
 **<nowiki>{{{{#wgs84_2itm: | }} </nowiki>
-**{{#wgs84_2itm:53.347778| -6.259722}} Dublin 
-**{{#wgs84_2itm:51.897222| -8.47}} Cork 
+**{{#wgs84_2itm:53.347778| -6.259722}} Dublin
+**{{#wgs84_2itm:51.897222| -8.47}} Cork
 **{{#wgs84_2itm:52| -8}}
 **{{#wgs84_2itm:53.485269|-6.920534661}}
 
 *LUREF - Luxemburg
 **<nowiki>{{{{#wgs84_2luref: | }} </nowiki>
-**{{#wgs84_2luref:49.731866667|6.798698056}} 
-**{{#wgs84_2luref:49.571556353|5.930748119}} 
+**{{#wgs84_2luref:49.731866667|6.798698056}}
+**{{#wgs84_2luref:49.571556353|5.930748119}}
 **{{#wgs84_2luref:49.611667|6.13}} Luxemburg stad';
 		$out->addWikiTextAsInterface( $wikitext );
 	}
@@ -179,4 +166,3 @@ class SpecialCCTest extends SpecialPage {
 		return 'other';
 	}
 }
-
