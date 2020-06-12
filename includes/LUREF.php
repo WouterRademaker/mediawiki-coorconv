@@ -1,6 +1,6 @@
 <?php
 class LUREF {
-			function WGS84ToLUREF( &$parser, $phi_d, $lambda_d) {
+			static function WGS84ToLUREF( &$parser, $phi_d, $lambda_d) {
 				// WGS84 Latitude/Longitude to LUREF - Luxembourg
 				// Based on http://www.act.etat.lu/datum.html
 				$HAYFORD24['a'] = 6378388;

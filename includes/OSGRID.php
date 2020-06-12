@@ -1,7 +1,7 @@
 <?php
 class OSGRID {
 
-	function WGS84ToOSGB36( &$parser, $phi_d, $lambda_d, $height = 0) {
+	static function WGS84ToOSGB36( &$parser, $phi_d, $lambda_d, $height = 0) {
 		// WGS84 Latitude/Longitude to OSGB36 - Great Britain
 		// Based on http://www.movable-type.co.uk/scripts/latlong-convert-coords.html
 		$WGS84['a']     = 6378137;
@@ -34,7 +34,7 @@ class OSGRID {
 		return self::gridrefNumToLetGB($grid, 8);
 		}
 
-		function WGS84ToIG( &$parser, $phi_d, $lambda_d, $height = 0) {
+		static function WGS84ToIG( &$parser, $phi_d, $lambda_d, $height = 0) {
 			// WGS84 Latitude/Longitude to Irish Grid - Republic Ireland and North Ireland
 			// Based on http://www.movable-type.co.uk/scripts/latlong-convert-coords.html
 			// Based on http://www.osni.gov.uk/2.1_the_irish_grid.pdf
@@ -69,7 +69,7 @@ class OSGRID {
 			return self::gridrefNumToLetIG($grid, 8);
 		}
 
-		function WGS84ToITM( &$parser, $phi_d, $lambda_d) {
+		static function WGS84ToITM( &$parser, $phi_d, $lambda_d) {
 			// WGS84 Latitude/Longitude to ITM Ireland (doesn't work yet !!!!!!!!!!!!!!)
 			$WGS84['a']     = 6378137;
 			$WGS84['b']     = 6356752.3142;
