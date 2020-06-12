@@ -46,9 +46,9 @@ class SpecialCCTest extends SpecialPage {
 |<nowiki>{{#wgs84_2lb08: | }} </nowiki>
 |colspan=3|http://www.ngi.be/Common/Lambert2008/Transformation_Geographic_Lambert_NL.pdf
 |-
-|Brussel (Paleizenplein)||{{#coordinates:50° 50' 32.7898'' N,4° 21' 51.4792'' E|format=float|directional=no}}||x = 649686.07 m y = 670226.23 m ||{{#wgs84_2lb08:50.842442|4.3643}}
+|Brussel (Paleizenplein)||50.842442,4.3643||x = 649686.07 m y = 670226.23 m ||{{#wgs84_2lb08:50.842442|4.3643}}
 |-
-|Arlon (Butte Saint-Donat)||{{#coordinates:49° 41' 06.1215'' N,5° 48' 58.5234'' E|format=float|directional=no}}||x = 754469.25 m y = 542520.00 m||{{#wgs84_2lb08:49.685034|5.816257}}
+|Arlon (Butte Saint-Donat)||49.685034,5.816257||x = 754469.25 m y = 542520.00 m||{{#wgs84_2lb08:49.685034|5.816257}}
 |}
 
 *LB93 (Frankrijk):
