@@ -86,7 +86,7 @@ class OSGRID {
 		/*
 		* convert geodesic co-ordinates to OS grid reference (transverse Mercator projection)
 		*/
-		function LatLongToOSGrid($point,$ellipse,$origin) {
+		static function LatLongToOSGrid($point,$ellipse,$origin) {
 			// Based on http://www.movable-type.co.uk/scripts/latlong-gridref.html
 			extract($point);
 			extract($ellipse);
@@ -135,7 +135,7 @@ class OSGRID {
 		/*
 		* convert numeric grid reference (in metres) to standard-form grid ref
 		*/
-		function gridrefNumToLetGB($Grid, $digits) {
+		static function gridrefNumToLetGB($Grid, $digits) {
 			// Based on http://www.movable-type.co.uk/scripts/latlong-gridref.html
 			extract($Grid);
 			// get the 100km-grid indices
@@ -174,7 +174,7 @@ class OSGRID {
 				}
 			}
 
-			function gridrefNumToLetIG($Grid, $digits) {
+			static function gridrefNumToLetIG($Grid, $digits) {
 				// Based on http://www.movable-type.co.uk/scripts/latlong-gridref.html
 				extract($Grid);
 				// get the 100km-grid indices
