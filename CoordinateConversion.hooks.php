@@ -19,7 +19,7 @@ class CoordinateConversionHooks {
 		$parser->setFunctionHook( 'long_deg2dms',  [    self::class, 'longDegToDMS'  ] );
 		$parser->setFunctionHook( 'long_dms2deg',  [    self::class, 'longDMSToDeg'  ] );
 		$parser->setFunctionHook( 'deg2dms',       [    self::class, 'DegToDMS'      ] );
-		$parser->setFunctionHook( 'wgs84_2rd',    \Closure::fromCallable( [      RD::class, 'WGS84ToRD'     ] ));
+		$parser->setFunctionHook( 'wgs84_2rd',     [      RD::class, 'WGS84ToRD'     ] );
 		$parser->setFunctionHook( 'wgs84_2lb93',   [ Lambert::class, 'WGS84ToLAM93'  ] );
 		$parser->setFunctionHook( 'wgs84_2lb08',   [ Lambert::class, 'WGS84ToLAM08'  ] );
 		$parser->setFunctionHook( 'wgs84_2ch03',   [  CH1903::class, 'WGS84ToCH1903' ] );

@@ -1,5 +1,5 @@
 <?php
-class RD {
+public class RD {
 	static function WGS84ToRD( &$parser, $x, $y = null  ) {
 		if( $y == null) {
 		                   $array = explode(',', $x);
