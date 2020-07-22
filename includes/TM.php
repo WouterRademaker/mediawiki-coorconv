@@ -8,7 +8,7 @@ class TransM {
   		//      $ep2 = ($sm_a * $sm_a - $sm_b * $sm_b) / ($sm_b * $sm_b);
   		$ep2 = 0.00673949681993606;
   		$nu2 = $ep2 * pow(cos($phi), 2.0);
-  		$N = pow ($sm_a, 2.0) / ($sm_b * sqrt(1 + $nu2));
+  		$N = pow ($sm_a,             2.0) / ($sm_b * sqrt(1 + $nu2));
   		$t = tan ($phi);
   		$t2= $t * $t;
   		$l3coef = 1.0 - $t2 + $nu2;
@@ -39,18 +39,18 @@ class TransM {
   		- 3.45262354148954e-9  * sin(6.0 * $phi)
   		+ 4.89183055303118E-12 * sin(8.0 * $phi));
   		$y      = $length
-  		+ ($t / 2.0     * $N * pow(cos($phi), 2.0) * pow($l, 2.0))
-  		+ ($t / 24.0    * $N * pow(cos($phi), 4.0) * $l4coef * pow($l, 4.0))
-  		+ ($t / 720.0   * $N * pow(cos($phi), 6.0) * $l6coef * pow($l, 6.0))
-  		+ ($t / 40320.0 * $N * pow(cos($phi), 8.0) * $l8coef * pow($l, 8.0));
-  		$ret = array($x,$y);
+  		+ ($t / 2.0     * $N * pow(cos($phi),  2.0) * pow($l, 2.0))
+  		+ ($t / 24.0    * $N * pow(cos($phi),  4.0) * $l4coef * pow($l, 4.0))
+  		+ ($t / 720.0   * $N * pow(cos($phi),  6.0) * $l6coef * pow($l, 6.0))
+  		+ ($t / 40320.0 * $N * pow(cos($phi),  8.0) * $l8coef * pow($l, 8.0));
+  		$ret = array($x, $y);
   		return($ret);
   	}
 
 	static function WGS84ToUTM( &$parser, $phi_d, $lambda_d, $zone='') {
 		// WGS84 Latitude/Longitude to UTM
 		// Based on http://www.igorexchange.com/node/927 and http://home.hiwaay.net/~taylorc/toolbox/geography/geoutm.html
-		$bandletter = array ("C","D","E","F","G","H","J","K","L","N","P","Q","R","S","T","U","V","W","X","X");
+		$bandletter = array ("C", "D","E","F","G","H","J","K","L","N","P","Q","R","S","T","U","V","W","X","X");
 		$TMScaleFactor = 0.9996;
 		if ( $phi_d >= 84 || $phi_d <= -80) return "Polar area, use Universal Polar Stereographic (UPS)";
 		// Special zone for Norway
@@ -78,7 +78,7 @@ class TransM {
 		$y_tm   = $xy[1]*$TMScaleFactor;
 		if($phi_d < 0)
 		$y_tm += 10000000; //10000000 meter offset for southern hemisphere
-		return sprintf("%d%s %dm E %dm N",$zone,$band, $x_tm, $y_tm);
+		return sprintf("%d%s %dm E %dm N", $zone,$band, $x_tm, $y_tm);
 	}
 
 	static function WGS84ToTM35FIN( &$parser, $phi_d, $lambda_d) {
@@ -93,9 +93,9 @@ class TransM {
 		$x_tm   = $xy[0]*$TMScaleFactor + 500000;
 		$y_tm   = $xy[1]*$TMScaleFactor;
 		if ($x_tm < 0)
-		return sprintf("&nbsp;&nbsp;%dE, %dN",$x_tm + 8000000, $y_tm);
+		return sprintf("&nbsp;&nbsp;%dE, %dN", $x_tm + 8000000, $y_tm);
 		else
-		return sprintf("(8)%dm E %dm N",$x_tm, $y_tm);
+		return sprintf("(8)%dm E %dm N", $x_tm, $y_tm);
 	}
 
 	static function WGS84ToMTM( &$parser, $phi_d, $lambda_d, $zone='') {
@@ -142,6 +142,6 @@ class TransM {
 			$TMScaleFactor = 0.9999;
 			$x_tm   = $xy[0]*$TMScaleFactor + 304800;
 			$y_tm   = $xy[1]*$TMScaleFactor;
-			return sprintf("%d %dm E %dm N",$zone, $x_tm, $y_tm);
+			return sprintf("%d %dm E %dm N", $zone, $x_tm, $y_tm);
 	}
 }

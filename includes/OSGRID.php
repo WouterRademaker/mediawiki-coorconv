@@ -1,6 +1,6 @@
 <?php
 class OSGRID {
-	static function WGS84ToOSGB36( &$parser, $phi_d, $lambda_d, $height = 0) {
+	static function WGS84ToOSGB36( &$parser,  $phi_d, $lambda_d, $height = 0) {
 		// WGS84 Latitude/Longitude to OSGB36 - Great Britain
 		// Based on http://www.movable-type.co.uk/scripts/latlong-convert-coords.html
 		$WGS84['a']     = 6378137;
@@ -25,7 +25,7 @@ class OSGRID {
 		$point['lambda'] = deg2rad($lambda_d);
 		$point['height'] = $height;
 		$point = Common::datumtransformation($point, $WGS84, $WGS84toOSGB36, $Airy1830);
-		$grid = self::LatLongToOSGrid($point,$Airy1830,$originOSGB36);
+		$grid = self::LatLongToOSGrid($point, $Airy1830,$originOSGB36);
 		//      level 1 transformation
 		//      $grid = self::LatLongToOSGrid($point,$WGS84,$originOSGB36);
 		//      $grid['E'] += 49;
@@ -62,7 +62,7 @@ class OSGRID {
 			//      $point = self::datumtransformation($point, $WGS84, $WGS84toOSI, $Airy1830_m);
 			//      $grid = self::LatLongToOSGrid($point,$Airy1830_m,$originOSI);
 			//      level 1 transformation
-			$grid = self::LatLongToOSGrid($point,$WGS84,$originOSI);
+			$grid = self::LatLongToOSGrid($point, $WGS84,$originOSI);
 			$grid['E'] += 49;
 			$grid['N'] -= 23.4;
 			return self::gridrefNumToLetIG($grid, 8);
@@ -79,14 +79,14 @@ class OSGRID {
 			$originITM['E0'] = 600000;                      // northing & easting of true origin, metres
 			$point['phi'] = deg2rad($phi_d);
 			$point['lambda'] = deg2rad($lambda_d);
-			$grid = self::LatLongToOSGrid($point,$WGS84,$originITM);
-			return sprintf("%dm E %dm N",$grid['E'], $grid['N']);
+			$grid = self::LatLongToOSGrid($point, $WGS84,$originITM);
+			return sprintf("%dm E %dm N", $grid['E'], $grid['N']);
 			}
 
 		/*
 		* convert geodesic co-ordinates to OS grid reference (transverse Mercator projection)
 		*/
-		static function LatLongToOSGrid($point,$ellipse,$origin) {
+		static function LatLongToOSGrid($point, $ellipse,$origin) {
 			// Based on http://www.movable-type.co.uk/scripts/latlong-gridref.html
 			extract($point);
 			extract($ellipse);
@@ -153,24 +153,24 @@ class OSGRID {
 			$letPair = chr($l1+ord('A')).chr($l2+ord('A'));
 
 			// strip 100km-grid indices from easting & northing, and reduce precision
-			$e = floor(($E%100000)/pow(10,5-$digits/2));
-			$n = floor(($N%100000)/pow(10,5-$digits/2));
+			$e = floor(($E%100000)/pow(10, 5-$digits/2));
+			$n = floor(($N%100000)/pow(10, 5-$digits/2));
 			switch ($digits)
 			{
 				case 2:
-				return sprintf("%s %'01d %'01d",$letPair, $e, $n);
+				return sprintf("%s %'01d %'01d", $letPair, $e, $n);
 				break;
 				case 4:
-				return sprintf("%s %'02d %'02d",$letPair, $e, $n);
+				return sprintf("%s %'02d %'02d", $letPair, $e, $n);
 				break;
 				case 6:
-				return sprintf("%s %'03d %'03d",$letPair, $e, $n);
+				return sprintf("%s %'03d %'03d", $letPair, $e, $n);
 				break;
 				case 10:
-				return sprintf("%s %'05d %'05d",$letPair, $e, $n);
+				return sprintf("%s %'05d %'05d", $letPair, $e, $n);
 				break;
 				default:
-				return sprintf("%s %'04d %'04d",$letPair, $e, $n);
+				return sprintf("%s %'04d %'04d", $letPair, $e, $n);
 				}
 			}
 
@@ -190,24 +190,24 @@ class OSGRID {
 				$let = chr($l+ord('A'));
 
 				// strip 100km-grid indices from easting & northing, and reduce precision
-				$e = floor(($E%100000)/pow(10,5-$digits/2));
-				$n = floor(($N%100000)/pow(10,5-$digits/2));
+				$e = floor(($E%100000)/pow(10, 5-$digits/2));
+				$n = floor(($N%100000)/pow(10, 5-$digits/2));
 				switch ($digits)
 				{
 					case 2:
-					return sprintf("%s %'01d %'01d",$let, $e, $n);
+					return sprintf("%s %'01d %'01d", $let, $e, $n);
 					break;
 					case 4:
-					return sprintf("%s %'02d %'02d",$let, $e, $n);
+					return sprintf("%s %'02d %'02d", $let, $e, $n);
 					break;
 					case 6:
-					return sprintf("%s %'03d %'03d",$let, $e, $n);
+					return sprintf("%s %'03d %'03d", $let, $e, $n);
 					break;
 					case 10:
-					return sprintf("%s %'05d %'05d",$let, $e, $n);
+					return sprintf("%s %'05d %'05d", $let, $e, $n);
 					break;
 					default:
-					return sprintf("%s %'04d %'04d",$let, $e, $n);
+					return sprintf("%s %'04d %'04d", $let, $e, $n);
 				}
 			}
 }

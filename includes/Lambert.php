@@ -1,22 +1,22 @@
 <?php
 class Lambert {
-	static function WGS84ToLAM($LAM,$x, $y ) {
+	static function WGS84ToLAM($LAM, $x, $y ) {
 		// Lambert projection
 		// based on http://www.ngi.be/Common/Lambert2008/Transformation_Geographic_Lambert_NL.pdf
 		extract($LAM);
-		$m_1            = cos($phi_1) / sqrt(1 - pow($e * sin($phi_1),2));
-		$m_2            = cos($phi_2) / sqrt(1 - pow($e * sin($phi_2),2));
+		$m_1            = cos($phi_1) / sqrt(1 - pow($e * sin($phi_1),                                      2));
+		$m_2            = cos($phi_2) / sqrt(1 - pow($e * sin($phi_2),                                      2));
 		$t_1            = tan(M_PI / 4 - $phi_1 / 2) / pow((1 - $e * sin($phi_1)) / (1 + $e * sin($phi_1)), $e / 2);
 		$t_2            = tan(M_PI / 4 - $phi_2 / 2) / pow((1 - $e * sin($phi_2)) / (1 + $e * sin($phi_2)), $e / 2);
 		$t_0            = tan(M_PI / 4 - $phi_0 / 2) / pow((1 - $e * sin($phi_0)) / (1 + $e * sin($phi_0)), $e / 2);
 		$n              = (log($m_1) - log($m_2)) / (log($t_1) - log($t_2));
-		$g              = $m_1 / ($n * pow($t_1, $n));
-		$r_0            = $a * $g * pow($t_0, $n);
+		$g              = $m_1 / ($n * pow($t_1,                                                            $n));
+		$r_0            = $a * $g * pow($t_0,                                                               $n);
 
 		$phi            = $x / 180 * M_PI;
 		$lambda         = $y / 180 * M_PI;
-		$t              = tan(M_PI / 4 - $phi / 2) / pow((1 - $e * sin($phi)) / (1 + $e * sin($phi)), $e / 2);
-		$r              = $a * $g * pow($t, $n);
+		$t              = tan(M_PI / 4 - $phi / 2) / pow((1 - $e * sin($phi)) / (1 + $e * sin($phi)),       $e / 2);
+		$r              = $a * $g * pow($t,                                                                 $n);
 		$theta          = $n * ($lambda - $lambda_0);
 		$x_LAM = $x_0 + $r * sin($theta);
 		$y_LAM = $y_0 + $r_0 - $r * cos($theta);

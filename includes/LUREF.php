@@ -1,6 +1,6 @@
 <?php
 class LUREF {
-			static function WGS84ToLUREF( &$parser, $phi_d, $lambda_d) {
+			static function WGS84ToLUREF( &$parser,  $phi_d, $lambda_d) {
 				// WGS84 Latitude/Longitude to LUREF - Luxembourg
 				// Based on http://www.act.etat.lu/datum.html
 				$HAYFORD24['a'] = 6378388;
@@ -13,8 +13,8 @@ class LUREF {
 				//      no datumtransformation needed, Luxembourg is small enough
 				$point['phi'] = deg2rad($phi_d);
 				$point['lambda'] = deg2rad($lambda_d);
-				$grid = OSGRID::LatLongToOSGrid($point,$HAYFORD24,$originLUREF);
+				$grid = OSGRID::LatLongToOSGrid($point, $HAYFORD24,$originLUREF);
 				extract($grid);
-				return sprintf("%dm E %dm N",$E, $N);
+				return sprintf("%dm E %dm N",           $E, $N);
 		}
 }
