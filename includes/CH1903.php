@@ -1,6 +1,6 @@
 <?php
 class CH1903 {
-	static function CH1903( $x, $y, $z = null ) {
+	static function CH03( $x, $y, $z = null ) {
 		// WGS84 Latitude/Longitude to CH1903 - Suisse
 		// based on https://www.swisstopo.admin.ch/content/swisstopo-internet/en/topics/survey/reference-systems/switzerland/_jcr_content/contentPar/tabs/items/dokumente_publikatio/tabPar/downloadlist/downloadItems/516_1459343097192.download/ch1903wgs84_e.pdf
     // found on https://www.swisstopo.admin.ch/en/knowledge-facts/surveying-geodesy/reference-systems/switzerland.html#dokumente_publikatio
@@ -32,7 +32,7 @@ class CH1903 {
 	}
 
  static function WGS84ToCH1903p ( &$parser, $x, $y, $z = null ) {
-    $xyz_ch03    = self::CH1903($x, $y, $z);
+    $xyz_ch03    = self::CH03($x, $y, $z);
 		if( !empty($z) ) {
 			return number_format($xyz_ch03[0], 0, '.', '/') ."//" .number_format($xyz_ch03[1], 0, '.', '/');
 		} else {
@@ -41,7 +41,7 @@ class CH1903 {
 	}
 
 	static function WGS84ToCH1903 ( &$parser, $x, $y, $z = null ) {
-		 $xyz_ch03    = self::CH1903($x, $y, $z);
+		 $xyz_ch03    = self::CH03($x, $y, $z);
 		 if( !empty($z) ) {
 			 return number_format($xyz_ch03[0]-2000000, 0, '.', '/') ."//" .number_format($xyz_ch03[1]-1000000, 0, '.', '/');
 		 } else {
