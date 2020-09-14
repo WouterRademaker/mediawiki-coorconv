@@ -50,7 +50,7 @@ class SpecialCCTest extends SpecialPage {
 |-
 |Arlon (Butte Saint-Donat)||49.685034,5.816257||x = 754469.25 m y = 542520.00 m||{{#wgs84_2lb08:49.685034|5.816257}}
 |-
-!colspan=4| CH03 (Zwitserland)
+!colspan=4| CH03 (Suisse)
 |-
 |<nowiki>{{#wgs84_2ch03: | }} </nowiki>
 |colspan=3|LV03
@@ -70,12 +70,13 @@ class SpecialCCTest extends SpecialPage {
 |-
 |Reference||46.044120951, 8.730497384, 650.60||y= 2700000.000 m, x= 1100000.000, z= 600||{{#wgs84_2ch03p:	46.044120951| 8.730497384|650.60}}
 |-
+!colspan=4| LB93 (France)
+|-
+|<nowiki>{{{{#wgs84_2lb93: | }} </nowiki>
+|colspan=3|
+|-
+|Paris||48.866667,2.333056||x =  m y =  m ||{{#wgs84_2lb08:48.866667|2.333056}}
 |}
-
-*LB93 (Frankrijk):
-**<nowiki>{{#wgs84_2lb93: | }} </nowiki>
-**{{#wgs84_2lb93:50.846667|4.3525}} Brussel
-**{{#wgs84_2lb93:48.866667|2.333056}}  Parijs
 
 *UTM (WGS84)
 **<nowiki>{{#lat_long2utm: | }} </nowiki>
