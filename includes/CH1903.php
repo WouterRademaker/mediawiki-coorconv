@@ -31,8 +31,8 @@ class CH1903 {
 
 	}
 
- static function WGS84ToCH1903p ( &$parser, $x, $y, $z = null ) {
-    $xyz_ch03    = self::CH03($x, $y, $z);
+ static function WGS84ToCH1903p( &$parser, $x, $y )  {
+    $xyz_ch03    = self::CH03($x, $y, null);
 		if( !empty($z) ) {
 			return number_format($xyz_ch03[0], 0, '.', '/') ."//" .number_format($xyz_ch03[1], 0, '.', '/');
 		} else {
@@ -40,8 +40,8 @@ class CH1903 {
 		}
 	}
 
-	static function WGS84ToCH1903 ( &$parser, $x, $y, $z = null ) {
-		 $xyz_ch03    = self::CH03($x, $y, $z);
+	static function WGS84ToCH1903( &$parser, $x, $y )  {
+		 $xyz_ch03    = self::CH03($x, $y, null);
 		 if( !empty($z) ) {
 			 return number_format($xyz_ch03[0]-2000000, 0, '.', '/') ."//" .number_format($xyz_ch03[1]-1000000, 0, '.', '/');
 		 } else {
