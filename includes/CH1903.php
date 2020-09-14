@@ -40,3 +40,4 @@ class CH1903 {
                 $xyz_ch03    = self::CH03($x, $y, $z);
                 return number_format($xyz_ch03[1], 0, '.', '&#39;') .", " .number_format($xyz_ch03[0], 0, '.', '&#39;');
         }
+}
