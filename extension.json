@@ -1,10 +1,10 @@
 {
 	"name": "CoordinateConversion",
-	"version": "0.7.0",
+	"version": "0.7.1",
 	"author": [
 		"Wouter Rademaker"
 	],
-	"url": "https://github.com/WouterRademaker/mediawiki-coorconv.git",
+	"url": "https://www.mediawiki.org/wiki/Extension:CoordinateConversion",
 	"descriptionmsg": "coordinateconversion-desc",
 	"license-name": "GPL v2",
 	"type": "parserhook",
@@ -12,7 +12,7 @@
 		"CoordinateConversionHooks": "CoordinateConversion.hooks.php",
 		"SpecialCCTest": "specials/SpecialCCTest.php",
 		"CH1903": "includes/CH1903.php",
-		"Common": "includes/Common.php",		
+		"Common": "includes/Common.php",
 		"Lambert": "includes/Lambert.php",
 		"LUREF": "includes/LUREF.php",
 		"OSGRID": "includes/OSGRID.php",
