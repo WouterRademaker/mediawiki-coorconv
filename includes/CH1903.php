@@ -34,10 +34,18 @@ class CH1903 {
 
         static function WGS84ToCH1903( &$parser, $x, $y, $z = null  ) {
                 $xyz_ch03    = self::CH03($x, $y, $z);
-                return number_format($xyz_ch03[1]-2000000, 0, '.', '&#39;') .", " .number_format($xyz_ch03[0]-1000000, 0, '.', '&#39;');
+								if( empty($xyz_ch03[2]) ) {
+                  return number_format($xyz_ch03[1]-2000000, 0, '.', '&#39;') .", " .number_format($xyz_ch03[0]-1000000, 0, '.', '&#39;');
+                } else {
+                  return number_format($xyz_ch03[1]-2000000, 0, '.', '&#39;') .", " .number_format($xyz_ch03[0]-1000000, 0, '.', '&#39;').", ".number_format($xyz_ch03[2],1);;
+								}
         }
         static function WGS84ToCH1903p( &$parser, $x, $y, $z = null  ) {
                 $xyz_ch03    = self::CH03($x, $y, $z);
-                return number_format($xyz_ch03[1], 0, '.', '&#39;') .", " .number_format($xyz_ch03[0], 0, '.', '&#39;');
+								if( empty($xyz_ch03[2]) ) {
+                  return number_format($xyz_ch03[1], 0, '.', '&#39;') .", " .number_format($xyz_ch03[0], 0, '.', '&#39;');
+                } else {
+                  return number_format($xyz_ch03[1], 0, '.', '&#39;') .", " .number_format($xyz_ch03[0], 0, '.', '&#39;').", ".number_format($xyz_ch03[2],1);;
+								}
         }
 }
