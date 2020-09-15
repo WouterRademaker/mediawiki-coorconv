@@ -42,7 +42,7 @@ class Common {
 			$phi = atan2($z2 + $eSq*$nu*sin($phi),    $p);
 		}
 		$point['phi'] = $phi;
-		$point['lambda'] = atan2($y2,              $x2);
+		$point['lambda'] = atan2($y2, $x2);
 		$point['height'] = $p/cos($phi) - $nu;
 		return $point;
 	}
