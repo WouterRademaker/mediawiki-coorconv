@@ -110,6 +110,23 @@ class SpecialCCTest extends SpecialPage {
 |PICO - Pianottolli Caldarello||41.47275, 9.064618 59.406 m||E= 1207509.989 m, N= 6060734.081 m, h= 11.77 m||{{#wgs84_2lb93:41.47275| 9.064618}}
 |-
 |PIMI - Bareges La Mongie ||42.936428, 0.142646 2923.432 m||E= 466595.572 m, N= 6208338.322 m, h= 2870.30 m||{{#wgs84_2lb93:42.936428| 0.142646}}
+|-
+!colspan=4|ETRS-TM35FIN (Finland)
+|-
+|<nowiki>{{#wgs84_2tm35fin: | }} </nowiki>
+|colspan=3|https://www.nationalparks.fi/en/
+|-
+|Boskär|| 60.033821.770773||N: 6666699 E: 208826||{{#wgs84_2tm35fin:60.0338|21.770773}}
+|-
+|Kuohkimajärvi||69.06069,20.557305 ||N: 7674619 E: 243443||{{#wgs84_2tm35fin:69.06069|20.557305}}
+|-
+|Lastaaja ||65.27244, 25.211477||N: 7240001 E: 416528||{{#wgs84_2tm35fin:65.27244| 25.211477}}
+|-
+|Neitikoski||63.38805,30.459202 ||N: 7033492 E: 672825||{{#wgs84_2tm35fin:63.38805|30.459202}}
+|-
+|Raappana||68.220863, 28.046485 || N: 7567856 E: 543329||{{#wgs84_2tm35fin:68.220863| 28.046485}}
+|-
+|Ruktajärvi||69.45614,26.294053|| N: 7705384 E: 472352||{{#wgs84_2tm35fin:69.45614|26.294053}}
 |}
 
 *UTM (WGS84)
@@ -125,11 +142,6 @@ class SpecialCCTest extends SpecialPage {
 **<nowiki>{{#lat_long2utm: | | }} </nowiki>
 **{{#wgs84_2utm:60.1666666666667|24.9333333333333|35}} Helsinki
 **{{#wgs84_2utm:60.45|22.25|35}} Turku
-
-*ETRS-TM35FIN (Finland)
-**<nowiki>{{#wgs84_2tm35fin: | }} </nowiki>
-**{{#wgs84_2tm35fin:60.1666666666667|24.9333333333333}} Helsinki
-**{{#wgs84_2tm35fin:60.45|22.25}} Turku
 
 *mtm / SCOPQ (Canada)
 **<nowiki>{{#wgs84_2mtm: | }} </nowiki>
