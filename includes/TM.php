@@ -100,7 +100,7 @@ class TransM {
 
 	static function WGS84ToMTM( &$parser, $phi_d, $lambda_d, $zone='') {
 		// WGS84 Latitude/Longitude to MTM Canada
-		// Based on http://pages.globetrotter.net/roule/utmgoogle.htm
+		// Based on https://leware.net/geo/utmgoogle.htm
 		// MTM zone to reference meridian
 		$mtmSmers = array (0, -53, -56, -58.5, -61.5, -64.5, -67.5, -70.5, -73.5, -76.5, -79.5, -82.5, -81, -84, -87, -90, -93, -96, -99, -102, -105, -108, -111, -114, -117, -120, -123, -126, -129, -132, -135, -138, -141);  // last was 142 ?!! I think it should be 141.
 
