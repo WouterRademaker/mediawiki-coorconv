@@ -1,6 +1,6 @@
 <?php
 class EPSG {
-	static function test_epgs( &$parser, $coord, $source = null, $target = null ) {
+	static function Test_epgs( &$parser, $coord, $source = null, $target = null ) {
     $array = explode(',', $coord);
     $x = $array[0];
     $y = $array[1];
@@ -10,6 +10,5 @@ class EPSG {
     $output=json_decode($json, true);
     return sprintf($output["x"].', '.$output["y"].', '.$output["z"]);
     //return array($output["x"], $output["y"], $output["z"]);
-
   }
 }
