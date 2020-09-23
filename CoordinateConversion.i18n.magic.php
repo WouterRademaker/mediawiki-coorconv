@@ -28,4 +28,5 @@ $magicWords['en'] = array(
    'wgs84_2osgb'    => array( 0, 'wgs84_2osgb' ),
    'wgs84_2ig'      => array( 0, 'wgs84_2ig' ),
    'wgs84_2luref'   => array( 0, 'wgs84_2luref' ),
+   'epsg'           => array( 0, 'epsg'),
 );

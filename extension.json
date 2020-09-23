@@ -17,7 +17,8 @@
 		"LUREF": "includes/LUREF.php",
 		"OSGRID": "includes/OSGRID.php",
 		"RD": "includes/RD.php",
-		"TransM": "includes/TM.php"
+		"TransM": "includes/TM.php",
+		"EPSG": "includes/epsg.php"
 	},
 	"config": {
 		"CoordinateConversionEnableFoo": true
