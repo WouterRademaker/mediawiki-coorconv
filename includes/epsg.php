@@ -8,7 +8,7 @@ class EPSG {
     $url = 'http://epsg.io/trans?s_srs='.$source.'&t_srs='.$target.'&x='.$x.'&y='.$y.'&z='.$z;
     $json = file_get_contents($url);
     $output=json_decode($json, true);
-    return $output["x"].', '.$output["y"].', '.$output["z"];
+    return sprintf($output["x"].', '.$output["y"].', '.$output["z"]);
     //return array($output["x"], $output["y"], $output["z"]);
 
   }
