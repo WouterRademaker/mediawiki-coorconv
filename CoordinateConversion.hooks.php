@@ -32,7 +32,7 @@ class CoordinateConversionHooks {
 		$parser->setFunctionHook( 'wgs84_2osgb',                                  [  OSGRID::class, 'WGS84ToOSGB36' ] );
 		$parser->setFunctionHook( 'wgs84_2ig',                                    [  OSGRID::class, 'WGS84ToIG'     ] );
 		$parser->setFunctionHook( 'wgs84_2luref',                                 [   LUREF::class, 'WGS84ToLUREF'  ] );
-		$parser->setFunctionHook( 'test_epsg',                                    [    EPSG::class, 'TESTEPSG'     ] );
+		$parser->setFunctionHook( 'wgs84_2epsg',                                  [    EPSG::class, 'WGS84ToEPSG'     ] );
 	}
 
 	static function DMS( $d, $m, $s, $h ) {
