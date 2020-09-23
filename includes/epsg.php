@@ -1,6 +1,6 @@
 <?php
 class EPSG {
-	static function Test_epgs( &$parser, $coord, $source = null, $target = null ) {
+	static function TESTEPSG( &$parser, $coord, $source = null, $target = null ) {
     $array = explode(',', $coord);
     $x = $array[0];
     $y = $array[1];
