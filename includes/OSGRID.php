@@ -161,19 +161,19 @@ class OSGRID {
 			switch ($digits)
 			{
 				case 2:
-				return sprintf("%s %'01d %'01d", $letPair, $e, $n, $height);
+				return sprintf("%s %'01d %'01d %.1f", $letPair, $e, $n, $height);
 				break;
 				case 4:
-				return sprintf("%s %'02d %'02d", $letPair, $e, $n, $height);
+				return sprintf("%s %'02d %'02d %.1f", $letPair, $e, $n, $height);
 				break;
 				case 6:
-				return sprintf("%s %'03d %'03d", $letPair, $e, $n, $height);
+				return sprintf("%s %'03d %'03d %.1f", $letPair, $e, $n, $height);
 				break;
 				case 10:
-				return sprintf("%s %'05d %'05d %'05d", $letPair, $e, $n, $height);
+				return sprintf("%s %'05d %'05d %.1f", $letPair, $e, $n, $height);
 				break;
 				default:
-				return sprintf("%s %'04d %'04d", $letPair, $e, $n, $height);
+				return sprintf("%s %'04d %'04d %.1f", $letPair, $e, $n, $height);
 				}
 			}
 
