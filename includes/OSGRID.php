@@ -69,7 +69,7 @@ class OSGRID {
 			return self::gridrefNumToLetIG($grid, 8);
 		}
 
-		static function WGS84ToITM( &$parser, $phi_d, $lambda_d) {
+		static function WGS84ToITM( &$parser, $phi_d, $lambda_d, $height = 0) {
 			// WGS84 Latitude/Longitude to ITM Ireland (doesn't work yet !!!!!!!!!!!!!!)
 			$WGS84['a']     = 6378137;
 			$WGS84['b']     = 6356752.3142;
@@ -80,6 +80,7 @@ class OSGRID {
 			$originITM['E0'] = 600000;                      // northing & easting of true origin, metres
 			$point['phi'] = deg2rad($phi_d);
 			$point['lambda'] = deg2rad($lambda_d);
+			$point['height'] = $height;
 			$grid = self::LatLongToOSGrid($point, $WGS84,$originITM);
 			return sprintf("%dm E %dm N", $grid['E'], $grid['N']);
 			}
