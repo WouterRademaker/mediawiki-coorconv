@@ -30,7 +30,7 @@ class OSGRID {
 		//      $grid = self::LatLongToOSGrid($point,$WGS84,$originOSGB36);
 		//      $grid['E'] += 49;
 		//      $grid['N'] -= 23.4;
-		return self::gridrefNumToLetGB($grid, 8);
+		return self::gridrefNumToLetGB($grid, 10);
 		}
 
 		static function WGS84ToIG( &$parser, $phi_d, $lambda_d, $height = 0) {
@@ -65,6 +65,7 @@ class OSGRID {
 			$grid = self::LatLongToOSGrid($point, $WGS84,$originOSI);
 			$grid['E'] += 49;
 			$grid['N'] -= 23.4;
+			$grid['height'] = $height;
 			return self::gridrefNumToLetIG($grid, 8);
 		}
 
@@ -129,6 +130,7 @@ class OSGRID {
 
 			$Grid['N'] = $I + $II*$dLon2 + $III*$dLon4 + $IIIA*$dLon6;
 			$Grid['E'] = $E0 + $IV*$dLon + $V*$dLon3 + $VI*$dLon5;
+			$Grid['height'] = $height;
 			return $Grid;
 		}
 
@@ -158,19 +160,19 @@ class OSGRID {
 			switch ($digits)
 			{
 				case 2:
-				return sprintf("%s %'01d %'01d", $letPair, $e, $n);
+				return sprintf("%s %'01d %'01d", $letPair, $e, $n, $height);
 				break;
 				case 4:
-				return sprintf("%s %'02d %'02d", $letPair, $e, $n);
+				return sprintf("%s %'02d %'02d", $letPair, $e, $n, $height);
 				break;
 				case 6:
-				return sprintf("%s %'03d %'03d", $letPair, $e, $n);
+				return sprintf("%s %'03d %'03d", $letPair, $e, $n, $height);
 				break;
 				case 10:
-				return sprintf("%s %'05d %'05d", $letPair, $e, $n);
+				return sprintf("%s %'05d %'05d", $letPair, $e, $n, $height);
 				break;
 				default:
-				return sprintf("%s %'04d %'04d", $letPair, $e, $n);
+				return sprintf("%s %'04d %'04d", $letPair, $e, $n, $height);
 				}
 			}
 
