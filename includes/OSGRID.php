@@ -65,7 +65,7 @@ class OSGRID {
 			$grid = self::LatLongToOSGrid($point, $WGS84,$originOSI);
 			$grid['E'] += 49;
 			$grid['N'] -= 23.4;
-			$grid['height'] = $height;
+//			$grid['height'] = $height;
 			return self::gridrefNumToLetIG($grid, 8);
 		}
 
@@ -131,7 +131,7 @@ class OSGRID {
 
 			$Grid['N'] = $I + $II*$dLon2 + $III*$dLon4 + $IIIA*$dLon6;
 			$Grid['E'] = $E0 + $IV*$dLon + $V*$dLon3 + $VI*$dLon5;
-			$Grid['height'] = $height;
+			$Grid['height'] = (empty($height)) ? null : $height;
 			return $Grid;
 		}
 
@@ -170,7 +170,7 @@ class OSGRID {
 				return sprintf("%s %'03d %'03d", $letPair, $e, $n, $height);
 				break;
 				case 10:
-				return sprintf("%s %'05d %'05d", $letPair, $e, $n, $height);
+				return sprintf("%s %'05d %'05d %'05d", $letPair, $e, $n, $height);
 				break;
 				default:
 				return sprintf("%s %'04d %'04d", $letPair, $e, $n, $height);
