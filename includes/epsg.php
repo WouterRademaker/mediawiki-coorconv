@@ -13,7 +13,7 @@ class EPSGIO {
   static function WGS84ToEPSG( &$parser, $coord, $target) {
 		$array = explode(',', preg_replace('/\s+/','',$coord));
 		[$array[0], $array[1]] = [$array[1], $array[0]];
-		$coord = implode ( ',', array $array );
+		$coord = implode ( ',', $array );
     $output=self::EPSG_IO( $coord, null , $target);
 		return sprintf($output["x"].', '.$output["y"].', '.$output["z"]);
 	}
