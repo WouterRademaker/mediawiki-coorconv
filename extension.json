@@ -1,6 +1,6 @@
 {
 	"name": "CoordinateConversion",
-	"version": "0.7.5",
+	"version": "0.8.0",
 	"author": [
 		"Wouter Rademaker"
 	],
@@ -18,7 +18,7 @@
 		"OSGRID": "includes/OSGRID.php",
 		"RD": "includes/RD.php",
 		"TransM": "includes/TM.php",
-		"EPSG": "includes/epsg.php"
+		"EPSGIO": "includes/epsg.php"
 	},
 	"config": {
 		"CoordinateConversionEnableFoo": true
