@@ -10,8 +10,14 @@ class EPSG {
     return json_decode($json, true);
   }
 
-  static function WGS84ToEPSG( &$parser, $coord, $target) {
+  static function WGS84ToEPSG( &$parser, $coord, $target, $template = null) {
     $output=self::EPSG_IO( $coord, null , $target);
-    return sprintf($output["x"].', '.$output["y"].', '.$output["z"]);
+		if (empty($template))
+    	{
+				return sprintf($output["x"].', '.$output["y"].', '.$output["z"]);
+			} else {
+				return sprintf('{{'.$template.'|'$output["x"].'|'.$output["y"].'|'.$output["z"].'}}');
+			}
   }
+
 }

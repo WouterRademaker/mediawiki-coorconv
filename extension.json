@@ -1,6 +1,6 @@
 {
 	"name": "CoordinateConversion",
-	"version": "0.7.1",
+	"version": "0.7.5",
 	"author": [
 		"Wouter Rademaker"
 	],
@@ -40,13 +40,8 @@
 	},
 	"ResourceModules": {
 		"ext.coordinateConversion.foo": {
-			"scripts": [
-				"modules/ext.coordinateConversion.js",
-				"modules/ext.coordinateConversion.foo.js"
-			],
-			"styles": [
-				"modules/ext.coordinateConversion.foo.css"
-			],
+			"scripts": [],
+			"styles": [],
 			"messages": [],
 			"dependencies": []
 		}

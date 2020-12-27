@@ -219,7 +219,7 @@ class SpecialCCTest extends SpecialPage {
 |-
 |YK Ivvavik National Park (bug1)||  68.94261,-139.92188||32m E m N||{{#wgs84_2mtm:  68.94261|-139.92188}}
 |-
-!colspan=4|OSGB36 (Engeland Schotland)
+!colspan=4|OSGB36 (England Scotland)
 |-
 |<nowiki>{{#wgs84_2osgb: | }} </nowiki>
 |colspan=3|https://www.ordnancesurvey.co.uk/business-government/tools-support/os-net/transformation
@@ -280,7 +280,7 @@ class SpecialCCTest extends SpecialPage {
 |-
 |OSHQ||+50.93127936, -1.45051451, 100.38||438710.908m E 114792.248m N 54.029m||{{#wgs84_2osgb:+50.93127936|-1.45051451| 100.38}}
 |-
-|PLYM||+50.43885823, -4.10864582, 215.24||250359.798m E 62016.567m N 16.3081m||{{#wgs84_2osgb:+50.43885823|-4.10864582| 215.24}}
+|PLYM||+50.43885823, -4.10864582, 215.24||250359.798m E 62016.567m N 163.081m||{{#wgs84_2osgb:+50.43885823|-4.10864582| 215.24}}
 |-
 |SCP1||+50.57563663, -1.29782294, 94.67||449816.359m E 75335.859m N 48.571m||{{#wgs84_2osgb:+50.57563663|-1.29782294|94.67}}
 |-
