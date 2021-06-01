@@ -21,7 +21,8 @@
 		"EPSGIO": "includes/epsg.php"
 	},
 	"config": {
-		"CoordinateConversionEnableFoo": true
+		"CoordinateConversionEnableFoo": true,
+		"EPSG_URL": "http://epsg.io/trans"
 	},
 	"ExtensionMessagesFiles": {
 		"CoordinateConversionAlias": "CoordinateConversion.i18n.alias.php",
