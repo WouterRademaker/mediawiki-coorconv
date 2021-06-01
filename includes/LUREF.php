@@ -11,8 +11,8 @@ class LUREF {
 				$originLUREF['N0'] = 100000;
 				$originLUREF['E0'] = 80000;                     // northing & easting of true origin, metres
 				//      no datumtransformation needed, Luxembourg is small enough
-				$point['phi'] = deg2rad($phi_d);
-				$point['lambda'] = deg2rad($lambda_d);
+				$point['phi'] = deg2rad(floatval ($phi_d));
+				$point['lambda'] = deg2rad(floatval ($lambda_d));
 				$grid = OSGRID::LatLongToOSGrid($point, $HAYFORD24,$originLUREF);
 				extract($grid);
 				return sprintf("%dm E %dm N",           $E, $N);

@@ -21,8 +21,8 @@ class OSGRID {
 		$originOSGB36['lambda0'] = deg2rad(-2);         // NatGrid true origin
 		$originOSGB36['N0'] = -100000;
 		$originOSGB36['E0'] = 400000;                   // northing & easting of true origin, metres
-		$point['phi'] = deg2rad($phi_d);
-		$point['lambda'] = deg2rad($lambda_d);
+		$point['phi'] = deg2rad(floatval ($phi_d));
+		$point['lambda'] = deg2rad(floatval ($lambda_d));
 		$point['height'] = $height;
 		$point = Common::datumtransformation($point, $WGS84, $WGS84toOSGB36, $Airy1830);
 		$grid = self::LatLongToOSGrid($point, $Airy1830,$originOSGB36);
@@ -56,8 +56,8 @@ class OSGRID {
 			$originOSI['N0'] = 250000;
 			$originOSI['E0'] = 200000;                      // northing & easting of true origin, metres
 
-			$point['phi'] = deg2rad($phi_d);
-			$point['lambda'] = deg2rad($lambda_d);
+			$point['phi'] = deg2rad(floatval ($phi_d));
+			$point['lambda'] = deg2rad(floatval ($lambda_d));
 			$point['height'] = $height;
 			//      $point = self::datumtransformation($point, $WGS84, $WGS84toOSI, $Airy1830_m);
 			//      $grid = self::LatLongToOSGrid($point,$Airy1830_m,$originOSI);

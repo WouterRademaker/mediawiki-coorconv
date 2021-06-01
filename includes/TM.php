@@ -67,12 +67,12 @@ class TransM {
 		elseif($lambda_d >= 33.0 && $lambda_d < 42.0 )
 		$zone = 37;
 		if (!$zone)
-		$zone = floor($lambda_d/6) + 31;
-		$band = $bandletter[floor(($phi_d+72)/8)];
+		$zone = floor(floatval ($lambda_d)/6) + 31;
+		$band = $bandletter[floor((floatval ($phi_d)+72)/8)];
 		$lambda0 = deg2rad(-183.0 + ($zone * 6.0));
-		$lambda=deg2rad($lambda_d);
-		$l = $lambda - $lambda0;
-		$phi=deg2rad($phi_d);
+		$lambda=deg2rad(floatval ($lambda_d));
+		$l = floatval ($lambda) - floatval ($lambda0);
+		$phi=deg2rad(floatval ($phi_d));
 		$xy     = self::TM($phi, $l);
 		$x_tm   = $xy[0]*$TMScaleFactor + 500000;
 		$y_tm   = $xy[1]*$TMScaleFactor;
@@ -86,9 +86,9 @@ class TransM {
 		// Based on http://www.samenland.nl/pdf/the_change_of_coordinate_system_in_finland.pdf
 		$TMScaleFactor = 0.9996;
 		$lambda0 = deg2rad(27); //UTM 35N
-		$lambda=deg2rad($lambda_d);
-		$l = $lambda - $lambda0;
-		$phi=deg2rad($phi_d);
+		$lambda=deg2rad(floatval ($lambda_d));
+		$l = floatval ($lambda) - floatval ($lambda0);
+		$phi=deg2rad(floatval ($phi_d));
 		$xy     = self::TM($phi, $l);
 		$x_tm   = $xy[0]*$TMScaleFactor + 500000;
 		$y_tm   = $xy[1]*$TMScaleFactor;

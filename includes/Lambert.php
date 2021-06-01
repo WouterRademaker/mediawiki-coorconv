@@ -13,8 +13,8 @@ class Lambert {
 		$g              = $m_1 / ($n * pow($t_1,                                                            $n));
 		$r_0            = $a * $g * pow($t_0,                                                               $n);
 
-		$phi            = $x / 180 * M_PI;
-		$lambda         = $y / 180 * M_PI;
+		$phi            = floatval ($x) / 180 * M_PI;
+		$lambda         = floatval ($y) / 180 * M_PI;
 		$t              = tan(M_PI / 4 - $phi / 2) / pow((1 - $e * sin($phi)) / (1 + $e * sin($phi)),       $e / 2);
 		$r              = $a * $g * pow($t,                                                                 $n);
 		$theta          = $n * ($lambda - $lambda_0);
