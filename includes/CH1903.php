@@ -6,8 +6,8 @@ class CH1903 {
     				// found on https://www.swisstopo.admin.ch/en/knowledge-facts/surveying-geodesy/reference-systems/switzerland.html#dokumente_publikatio
     				// https://www.swisstopo.admin.ch/de/karten-daten-online/calculation-services/navref.html
 
-                $phi=(($x*3600)-169028.66)/10000;
-                $lambda=(($y*3600)-26782.5)/10000;
+                $phi=((floatval ($x)*3600)-169028.66)/10000;
+                $lambda=((floatval ($y)*3600)-26782.5)/10000;
 
                 $y_ch03 = 2600072.37
                 + 211455.93 * $lambda
