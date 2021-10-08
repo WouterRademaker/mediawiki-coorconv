@@ -1,6 +1,7 @@
 <?php
 class EPSGIO {
 	static function EPSG_IO( $coord, $source = null, $target = null ) {
+		global $wgEPSG_URL;
     $array = explode(',', preg_replace('/\s+/','',$coord));
     $x = (empty($array[0])) ? null : $array[0];
     $y = (empty($array[1])) ? null : $array[1];
