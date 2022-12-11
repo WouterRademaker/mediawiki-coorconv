@@ -11,7 +11,7 @@ class EPSGIO {
     		if (!empty($target)) {$url .= '&t_srs='.$target;}
     		$json = file_get_contents($url);
     		return json_decode($json, true);
-  }
+  	}
   	static function WGS84ToEPSG( &$parser, $coord, $target) {
 		$array = explode(',', preg_replace('/\s+/','',$coord));
 		[$array[0], $array[1]] = [$array[1], $array[0]];
