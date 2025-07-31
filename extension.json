@@ -26,10 +26,9 @@
 	},
 	"ExtensionMessagesFiles": {
 		"CoordinateConversionAlias": "CoordinateConversion.i18n.alias.php",
-                "CoordinateConversionAlias": "CoordinateConversion.i18n.magic.php"
+    "CoordinateConversionMagic": "CoordinateConversion.i18n.magic.php"
 	},
 	"Hooks": {
-
 		"ParserFirstCallInit": [
 			"CoordinateConversionHooks::onParserFirstCallInit"
 		]

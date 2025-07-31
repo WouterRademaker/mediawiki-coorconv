@@ -20,16 +20,12 @@ class SpecialCCTest extends SpecialPage {
 	public function execute( $sub ) {
 		$out = $this->getOutput();
 
-		$out->setPageTitle( $this->msg( 'coordinateconversion-test' ) );
+		$out->setPageTitleMsg( $this->msg( 'coordinateconversion-test' ) );
 
 		$out->addHelpLink( 'How to become a MediaWiki hacker' );
 
 		$out->addWikiMsg( 'coordinateconversion-test-intro' );
 
-
-
-		# Do stuff
-		# ...
 		$wikitext = '
 {|class="wikitable" style="width:100%"
 !colspan=4| RD (The Netherlands)
@@ -346,7 +342,6 @@ class SpecialCCTest extends SpecialPage {
 **{{#wgs84_2luref:49.611667|6.13}} Luxemburg stad';
 		$out->addWikiTextAsInterface( $wikitext );
 	}
-
 
 	protected function getGroupName() {
 		return 'other';
