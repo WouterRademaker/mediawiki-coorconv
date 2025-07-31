@@ -24,7 +24,7 @@ class OSGRID {
 		$point['phi'] = deg2rad( floatval( $phi_d ) );
 		$point['lambda'] = deg2rad( floatval( $lambda_d ) );
 		$point['height'] = $height;
-		$point = Common::datumtransformation( $point, $WGS84, $WGS84toOSGB36, $Airy1830 );
+		$point = Datumtransformation::datumtransformation( $point, $WGS84, $WGS84toOSGB36, $Airy1830 );
 		$grid = self::LatLongToOSGrid( $point, $Airy1830, $originOSGB36 );
 		// level 1 transformation
 		//      $grid = self::LatLongToOSGrid($point,$WGS84,$originOSGB36);
@@ -162,8 +162,8 @@ class OSGRID {
 		$letPair = chr( $l1 + ord( 'A' ) ) . chr( $l2 + ord( 'A' ) );
 
 		// strip 100km-grid indices from easting & northing, and reduce precision
-		$e = floor( ( (INT)$E % 100000 ) / pow( 10, 5 - $digits / 2 ) );
-		$n = floor( ( (INT)$N % 100000 ) / pow( 10, 5 - $digits / 2 ) );
+		$e = floor( ( (int)$E % 100000 ) / pow( 10, 5 - $digits / 2 ) );
+		$n = floor( ( (int)$N % 100000 ) / pow( 10, 5 - $digits / 2 ) );
 		switch ( $digits ) {
 			case 2:
 				return sprintf( "%s %'01d %'01d %.1f", $letPair, $e, $n, $height );
@@ -202,8 +202,8 @@ class OSGRID {
 		$let = chr( $l + ord( 'A' ) );
 
 		// strip 100km-grid indices from easting & northing, and reduce precision
-		$e = floor( ( (INT)$E % 100000 ) / pow( 10, 5 - $digits / 2 ) );
-		$n = floor( ( (INT)$N % 100000 ) / pow( 10, 5 - $digits / 2 ) );
+		$e = floor( ( (int)$E % 100000 ) / pow( 10, 5 - $digits / 2 ) );
+		$n = floor( ( (int)$N % 100000 ) / pow( 10, 5 - $digits / 2 ) );
 		switch ( $digits ) {
 			case 2:
 				return sprintf( "%s %'01d %'01d", $let, $e, $n );

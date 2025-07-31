@@ -1,5 +1,5 @@
 <?php
-class Common {
+class Datumtransformation {
 	static function datumtransformation( $point, $e1, $t, $e2 ) {
 		// Based on http://www.movable-type.co.uk/scripts/latlong-convert-coords.html
 		// -- convert polar to cartesian coordinates (using ellipse 1)

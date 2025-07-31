@@ -12,17 +12,19 @@
 		"CoordinateConversionHooks": "CoordinateConversion.hooks.php",
 		"SpecialCCTest": "specials/SpecialCCTest.php",
 		"CH1903": "includes/CH1903.php",
-		"Common": "includes/Common.php",
+		"Datumtransformation": "includes/datumtransformation.php",
 		"Lambert": "includes/Lambert.php",
 		"LUREF": "includes/LUREF.php",
 		"OSGRID": "includes/OSGRID.php",
 		"RD": "includes/RD.php",
 		"TransM": "includes/TM.php",
-		"EPSGIO": "includes/epsg.php"
+		"EPSGIO": "includes/EPSG.php"
 	},
 	"config": {
-		"CoordinateConversionEnableFoo": true,
-		"EPSG_URL": "http://epsg.io/trans"
+		"CC_EPSG_URL": "http://epsg.io/trans"
+	},
+	"ConfigRegistry": {
+		"CoordinateConversion": "GlobalVarConfig::newInstance"
 	},
 	"ExtensionMessagesFiles": {
 		"CoordinateConversionAlias": "CoordinateConversion.i18n.alias.php",
